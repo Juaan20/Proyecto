@@ -26,10 +26,46 @@ public class PantallaAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelUser = new javax.swing.JDialog();
+        PanelEventos = new javax.swing.JDialog();
+        PanelReservas = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+
+        javax.swing.GroupLayout PanelUserLayout = new javax.swing.GroupLayout(PanelUser.getContentPane());
+        PanelUser.getContentPane().setLayout(PanelUserLayout);
+        PanelUserLayout.setHorizontalGroup(
+            PanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        PanelUserLayout.setVerticalGroup(
+            PanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout PanelEventosLayout = new javax.swing.GroupLayout(PanelEventos.getContentPane());
+        PanelEventos.getContentPane().setLayout(PanelEventosLayout);
+        PanelEventosLayout.setHorizontalGroup(
+            PanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        PanelEventosLayout.setVerticalGroup(
+            PanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout PanelReservasLayout = new javax.swing.GroupLayout(PanelReservas.getContentPane());
+        PanelReservas.getContentPane().setLayout(PanelReservasLayout);
+        PanelReservasLayout.setHorizontalGroup(
+            PanelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        PanelReservasLayout.setVerticalGroup(
+            PanelReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(217, 217, 217));
@@ -126,6 +162,9 @@ public class PantallaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog PanelEventos;
+    private javax.swing.JDialog PanelReservas;
+    private javax.swing.JDialog PanelUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
