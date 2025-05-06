@@ -6,14 +6,50 @@ body{
     background-color: rgb(193, 234, 182);
 }
 nav{
-    background-color: rgba(0, 0, 0, 0);
-    margin-top: -25px;  
+    margin-top: -20px; 
+    background-color: rgba(255, 255, 255, 0.712);
+}
+nav p{
+    margin: 0;
+    padding: 0;
 }
 .texto-header{
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: 700;
 }
-
 .Menu{
     background-color:rgb(193, 234, 182);
+}
+
+
+/* home */
+
+.home{
+    height: 100vh;
+}
+
+/* que es bloop */
+
+.que-es-bloop{
+    height: 100vh;
+}
+
+/* eventos */
+.eventos{
+
+    height: 100vh;
+}
+
+
+/* contacto */
+.contacto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+}
+
+.contacto .boton{
+    padding: 5px 105px 5px 105px;
 }
