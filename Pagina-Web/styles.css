@@ -6,7 +6,7 @@ body{
     background-color: rgb(193, 234, 182);
 }
 nav{
-    margin-top: -20px; 
+    margin-top: -10px; 
     background-color: rgba(0, 0, 0, 0);
 }
 nav p{
@@ -14,7 +14,7 @@ nav p{
     padding: 0;
 }
 .texto-header{
-    font-size: 3.5em;
+    font-size: 2em;
     font-weight: 700;
 }
 .Menu{
@@ -51,5 +51,21 @@ nav p{
 }
 
 .contacto .boton{
-    padding: 5px 105px 5px 105px;
+    padding: 5px 240px 5px 240px;
+}
+
+
+/* footer */
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 14vh;
+    background-color: beige;
+}
+.footer p{
+    margin: 0;
+    padding: 0;
 }
