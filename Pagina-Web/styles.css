@@ -177,6 +177,28 @@ nav img{
     align-items: center;
 }
 
+.img-evento-1{
+  width: 1450px;display: block;
+}
+
+.img-evento-2{
+  width: 350px;display: none;
+}
+
+@media screen and (max-width: 1455px) {
+    .img-evento-1{
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1072px) {
+    .img-evento-1{
+        display: none;
+    }
+    .img-evento-2{
+        display: block;
+    }
+}
 
 /* contacto */
 .contacto{
