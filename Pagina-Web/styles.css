@@ -123,6 +123,7 @@ nav img{
   text-transform: uppercase;
   margin-bottom: 100px;
   text-align: center;
+  color:orangered;
 }
 
 .home3{
@@ -140,7 +141,7 @@ nav img{
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: rgb(255, 165, 0);
+    color:orangered;
     padding: 45px 0px 0px 0px ;
 }
 
@@ -214,7 +215,7 @@ nav img{
 }
 .contacto .boton{
     padding: 5px 240px 5px 240px;
-    background-color: rgb(255, 145, 35);
+    background-color: orangered;
     border: 1px solid rgb(255, 171, 87);
 }
 
