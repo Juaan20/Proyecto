@@ -1,0 +1,62 @@
+CREATE DATABASE IF NOT EXISTS bloop;
+
+use bloop;
+
+CREATE TABLE Usuario (
+Id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+Nombre VARCHAR (50) NOT NULL,
+Contrasena VARCHAR(255) NOT NULL
+); -- EN JAVA TENDREMOS QUE HACER EN HASH
+
+CREATE TABLE Contacto_Usuario (
+Id_usuario INT PRIMARY KEY,
+Telefono INT,
+Email varchar(50) NOT NULL,
+FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Usuario_Administrador (
+Id_usuario INT PRIMARY KEY,
+nivel_acceso boolean NOT NULL,
+FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Usuario_general (
+Id_usuario INT PRIMARY KEY,
+nivel_acceso boolean NOT NULL,
+FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Evento (
+Id_evento INT PRIMARY KEY AUTO_INCREMENT,
+Titulo VARCHAR(100) NOT NULL,
+Fecha DATE NOT NULL,
+Ubicacion VARCHAR(100) NOT NULL,
+Plazas_totales INT NOT NULL,
+Plazas_disponibles INT NOT NULL
+);
+
+CREATE TABLE Categoria_evento (
+Id_evento INT PRIMARY KEY,
+Categoria VARCHAR (50) NOT NULL,
+FOREIGN KEY (Id_evento) REFERENCES Evento(Id_evento) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Reservas(
+Id_reserva INT PRIMARY KEY AUTO_INCREMENT,
+Id_usuario INT,
+Id_evento INT,
+Fecha_Reserva date NOT NULL,
+num_entradas INT NOT NULL,
+FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (Id_evento) REFERENCES Evento(Id_evento) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Tipo_reserva (
+Id_reserva INT PRIMARY KEY,
+Tipo VARCHAR(50) NOT NULL,
+FOREIGN KEY(Id_reserva) REFERENCES Reservas(Id_reserva) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
