@@ -24,10 +24,12 @@ public class Conect_BD {
     Connection cn;
     Statement sql;
     ResultSet rs;
+    
+    boolean resultado;
 
     //PantallPrincipal objPantallPrincipal = new PantallPrincipal();
-    // PantallaAdmin objPantallaAdmin = new PantallaAdmin();
-    //PantallaUsuario objPantallaUsuario = new PantallaUsuario();
+//     PantallaAdmin objPantallaAdmin = new PantallaAdmin();
+//    PantallaUsuario objPantallaUsuario = new PantallaUsuario();
     public Conect_BD() {
     }
 
@@ -46,13 +48,9 @@ public class Conect_BD {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    String resultado = rs.getString("nivel_acceso");
+                    resultado = rs.getBoolean("nivel_acceso");
                     System.out.println(resultado);
-//                    if (resultado.equals("true")) {
-//                        objPantallaAdmin.setVisible(true);
-//                    } else {
-//                        objPantallaUsuario.setVisible(true);
-//                    }
+                   
                 } else {
                     System.out.println("Usuario y contraseña Incorecto");
                 }
