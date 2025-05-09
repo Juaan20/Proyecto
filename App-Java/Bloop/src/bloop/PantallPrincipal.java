@@ -16,8 +16,10 @@ public class PantallPrincipal extends javax.swing.JFrame {
     public PantallPrincipal() {
         initComponents();
     }
+    
+    Conect_BD objConect_BD = new Conect_BD();
 
-    PantallaAdmin Obj_pantallaAdmin = new PantallaAdmin();
+    //PantallaAdmin Obj_pantallaAdmin = new PantallaAdmin();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,8 +104,7 @@ public class PantallPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        setVisible(false);
-        Obj_pantallaAdmin.setVisible(true);
+       objConect_BD.Inicio_Sesion(jTextField1, jPasswordField1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
