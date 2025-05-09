@@ -48,6 +48,15 @@ FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPD
 FOREIGN KEY (Id_evento) REFERENCES Evento(Id_evento) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (Id_Tipo_Reserva) REFERENCES Tipo_reserva(Id_Tipo_reserva) ON DELETE CASCADE ON UPDATE CASCADE
 );
-DROP DATABASE bloop;
+
+INSERT INTO Usuario (Nombre, Contrasena, nivel_acceso) VALUES
+('admin1', '1234', 1), -- Administrador
+('usuario1', '1234', 0); -- Usuario General
+
+INSERT INTO Contacto_usuario (Id_Usuario, Telefono, Email) VALUES
+(1, 601238327, "admin1@gmail.com"), -- Administrador
+(2, 646312835, "usuario1@gmail.com"); -- Usuario General
+
+
 
 
