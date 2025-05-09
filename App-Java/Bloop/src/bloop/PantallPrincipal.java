@@ -4,6 +4,8 @@
  */
 package bloop;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victus
@@ -21,6 +23,7 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
     PantallaAdmin Obj_pantallaAdmin = new PantallaAdmin();
     PantallaUsuario obj_pantauser = new PantallaUsuario();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +42,8 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(217, 217, 217));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
         setMaximumSize(new java.awt.Dimension(400, 500));
         setMinimumSize(new java.awt.Dimension(400, 500));
 
@@ -104,12 +109,23 @@ public class PantallPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         objConect_BD.Inicio_Sesion(jTextField1, jPasswordField1);
 
-        if (objConect_BD.resultado) {
-            setVisible(false);
-            Obj_pantallaAdmin.setVisible(true);
+        if (!jTextField1.getText().equals("") || !jPasswordField1.getText().equals("")) {
+            if (objConect_BD.resultado.equals("true")) {
+                setVisible(false);
+                Obj_pantallaAdmin.setVisible(true);
+            }
+
+            if (objConect_BD.resultado.equals("false")) {
+                setVisible(false);
+                obj_pantauser.setVisible(true);
+            }
+
+            if (objConect_BD.resultado.equals("")) {
+                jPasswordField1.setText("");
+                JOptionPane.showMessageDialog(null, "El Usuario o Contraseña es incorrecta", "Bloop", JOptionPane.INFORMATION_MESSAGE);
+            }
         }else{
-            setVisible(false);
-            obj_pantauser.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Debes rellenar los campos, para poder acceder", "Bloop", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

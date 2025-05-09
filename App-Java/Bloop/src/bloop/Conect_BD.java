@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -27,7 +28,7 @@ public class Conect_BD {
     Statement sql;
     ResultSet rs;
 
-    boolean resultado;
+    String resultado = "";
 
     //PantallPrincipal objPantallPrincipal = new PantallPrincipal();
 //     PantallaAdmin objPantallaAdmin = new PantallaAdmin();
@@ -50,9 +51,8 @@ public class Conect_BD {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    resultado = rs.getBoolean("nivel_acceso");
+                    resultado = String.valueOf( rs.getBoolean("nivel_acceso"));
                     System.out.println(resultado);
-
                 } else {
                     System.out.println("Usuario y contraseña Incorecto");
                 }
@@ -60,6 +60,49 @@ public class Conect_BD {
             } else {
                 System.out.println("DEBE COMPLETAR LOS CAMPOS");
             }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    
+    public void Ver_Categoria(JComboBox jc){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            String SQL = "SELECT Categoria FROM categoria_evento";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            jc.removeAllItems(); // Opcional: limpia el combo antes de agregar nuevos elementos
+
+            while (rs.next()) {
+            String categoria = rs.getString("Categoria");
+            jc.addItem(categoria);
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Añadir_Categoria(JTextField jt){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+            
+            String SQL = "INSERT INTO categoria_evento (Categoria) VALUES (?)";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            ps.setString(1, jt.getText());
+            
+            ps.executeUpdate();
+            
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -92,6 +135,7 @@ public class Conect_BD {
                 objEvento.setPlazas_Totales(rs.getInt("Plazas_totales"));
                 objEvento.setPlazas_Disponibles(rs.getInt("Plazas_disponibles"));
                 objEvento.setCategoria(rs.getString("Nombre_Categoria"));
+                
                 
                 
                 array_evento.add(objEvento);
