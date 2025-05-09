@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPasswordField;
@@ -24,7 +25,7 @@ public class Conect_BD {
     Connection cn;
     Statement sql;
     ResultSet rs;
-    
+
     boolean resultado;
 
     //PantallPrincipal objPantallPrincipal = new PantallPrincipal();
@@ -50,7 +51,7 @@ public class Conect_BD {
                 if (rs.next()) {
                     resultado = rs.getBoolean("nivel_acceso");
                     System.out.println(resultado);
-                   
+
                 } else {
                     System.out.println("Usuario y contraseña Incorecto");
                 }
@@ -63,6 +64,44 @@ public class Conect_BD {
         } catch (SQLException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    public ArrayList<Evento> VerEventos() {
+        ArrayList<Evento> array_evento = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            String SQL = "SELECT " +
+                       "e.Id_evento, e.Titulo, e.Fecha, e.Ubicacion, e.Plazas_totales, e.Plazas_disponibles, " +
+                       "c.Categoria AS Nombre_Categoria " +
+                       "FROM Evento e " +
+                       "JOIN Categoria_evento c ON e.Id_Categoria_Evento = c.Id_Categoria_Evento";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+                Evento objEvento = new Evento();
+                
+                objEvento.setID(rs.getInt("Id_evento"));
+                objEvento.setTitulo(rs.getString("Titulo"));
+                objEvento.setFecha(rs.getDate("Fecha"));
+                objEvento.setUbicacion(rs.getString("Ubicacion"));
+                objEvento.setPlazas_Totales(rs.getInt("Plazas_totales"));
+                objEvento.setPlazas_Disponibles(rs.getInt("Plazas_disponibles"));
+                objEvento.setCategoria(rs.getString("Nombre_Categoria"));
+                
+                
+                array_evento.add(objEvento);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return array_evento;
 
     }
 }
