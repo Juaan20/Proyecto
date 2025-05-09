@@ -188,7 +188,6 @@ public class PantallaAdmin extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(73, 94, 180));
         jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Panel Eventos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +197,6 @@ public class PantallaAdmin extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(73, 94, 180));
         jButton2.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Panel Reservas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

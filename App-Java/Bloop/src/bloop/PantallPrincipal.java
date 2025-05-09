@@ -47,7 +47,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(184, 180, 180));
         jTextField1.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel2.setText("Usuario:");
@@ -57,7 +56,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(73, 94, 180));
         jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Iniciar Sesion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +64,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(new java.awt.Color(184, 180, 180));
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
