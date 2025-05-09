@@ -5,7 +5,8 @@ use bloop;
 CREATE TABLE Usuario (
 Id_usuario INT PRIMARY KEY AUTO_INCREMENT,
 Nombre VARCHAR (50) NOT NULL,
-Contrasena VARCHAR(255) NOT NULL
+Contrasena VARCHAR(255) NOT NULL,
+nivel_acceso Boolean NOT NULL
 ); -- EN JAVA TENDREMOS QUE HACER EN HASH
 
 CREATE TABLE Contacto_Usuario (
@@ -15,17 +16,6 @@ Email varchar(50) NOT NULL,
 FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Usuario_Administrador (
-Id_usuario INT PRIMARY KEY,
-nivel_acceso boolean NOT NULL DEFAULT 1,
-FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE Usuario_general (
-Id_usuario INT PRIMARY KEY,
-nivel_acceso boolean NOT NULL DEFAULT 0,
-FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
-);
 CREATE TABLE Categoria_evento (
 Id_Categoria_Evento INT PRIMARY KEY auto_increment,
 Categoria VARCHAR (50) NOT NULL
