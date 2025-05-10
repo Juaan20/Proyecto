@@ -36,6 +36,8 @@ public class Conect_BD {
     public Conect_BD() {
     }
 
+    
+    //ESTO ES EL CODIGO DE EL INICIO DE SESION
     public void Inicio_Sesion(JTextField JT, JPasswordField JP) {
 
         try {
@@ -68,7 +70,7 @@ public class Conect_BD {
 
     }
     
-    
+    // ESTO ES EL CODIGO DE EL PANEL DE CONTROL DE EVENTOS DEL ADMINISTRADOR
     public void Ver_Categoria(JComboBox jc){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -149,4 +151,20 @@ public class Conect_BD {
         return array_evento;
 
     }
+    
+    public void Crear_Evento(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+            
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    //ESTO ES EL CODIGO DE EL PANEL DE RESERVA DEL ADMINISTRADOR
+    
 }
