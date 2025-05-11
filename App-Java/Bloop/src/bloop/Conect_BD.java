@@ -17,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +37,6 @@ public class Conect_BD {
     public Conect_BD() {
     }
 
-    
     //ESTO ES EL CODIGO DE EL INICIO DE SESION
     public void Inicio_Sesion(JTextField JT, JPasswordField JP) {
 
@@ -53,7 +53,7 @@ public class Conect_BD {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    resultado = String.valueOf( rs.getBoolean("nivel_acceso"));
+                    resultado = String.valueOf(rs.getBoolean("nivel_acceso"));
                     System.out.println(resultado);
                 } else {
                     System.out.println("Usuario y contraseña Incorecto");
@@ -69,9 +69,9 @@ public class Conect_BD {
         }
 
     }
-    
+
     // ESTO ES EL CODIGO DE EL PANEL DE CONTROL DE EVENTOS DEL ADMINISTRADOR
-    public void Ver_Categoria(JComboBox jc){
+    public void Ver_Categoria(JComboBox jc) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
@@ -82,29 +82,28 @@ public class Conect_BD {
             jc.removeAllItems(); // Opcional: limpia el combo antes de agregar nuevos elementos
 
             while (rs.next()) {
-            String categoria = rs.getString("Categoria");
-            jc.addItem(categoria);
+                String categoria = rs.getString("Categoria");
+                jc.addItem(categoria);
             }
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void Añadir_Categoria(JTextField jt){
+
+    public void Añadir_Categoria(JTextField jt) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
-            
+
             String SQL = "INSERT INTO categoria_evento (Categoria) VALUES (?)";
             PreparedStatement ps = cn.prepareStatement(SQL);
             ps.setString(1, jt.getText());
-            
+
             ps.executeUpdate();
-            
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -113,58 +112,57 @@ public class Conect_BD {
 
     }
 
-    public ArrayList<Evento> VerEventos() {
-        ArrayList<Evento> array_evento = new ArrayList<>();
+    public void Ver_Evento(JTable jt) {
+
         try {
+            DefaultTableModel vaciar_tabla = (DefaultTableModel) jt.getModel();
+            vaciar_tabla.setNumRows(0);
+            jt.setModel(vaciar_tabla);
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
 
-            String SQL = "SELECT " +
-                       "e.Id_evento, e.Titulo, e.Fecha, e.Ubicacion, e.Plazas_totales, e.Plazas_disponibles, " +
-                       "c.Categoria AS Nombre_Categoria " +
-                       "FROM Evento e " +
-                       "JOIN Categoria_evento c ON e.Id_Categoria_Evento = c.Id_Categoria_Evento";
+            String SQL = "SELECT "
+                    + "e.Id_evento, e.Titulo, e.Fecha, e.Ubicacion, e.Plazas_totales, e.Plazas_disponibles, "
+                    + "c.Categoria AS Nombre_Categoria "
+                    + "FROM Evento e "
+                    + "JOIN Categoria_evento c ON e.Id_Categoria_Evento = c.Id_Categoria_Evento";
             PreparedStatement ps = cn.prepareStatement(SQL);
             rs = ps.executeQuery();
-            
-            while (rs.next()) {                
-                Evento objEvento = new Evento();
-                
-                objEvento.setID(rs.getInt("Id_evento"));
-                objEvento.setTitulo(rs.getString("Titulo"));
-                objEvento.setFecha(rs.getDate("Fecha"));
-                objEvento.setUbicacion(rs.getString("Ubicacion"));
-                objEvento.setPlazas_Totales(rs.getInt("Plazas_totales"));
-                objEvento.setPlazas_Disponibles(rs.getInt("Plazas_disponibles"));
-                objEvento.setCategoria(rs.getString("Nombre_Categoria"));
-                
-                
-                
-                array_evento.add(objEvento);
+
+            DefaultTableModel modelo = (DefaultTableModel) jt.getModel();
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getInt("Id_evento"),
+                    rs.getString("Titulo"),
+                    rs.getDate("Fecha"),
+                    rs.getString("Ubicacion"),
+                    rs.getInt("Plazas_totales"),
+                    rs.getInt("Plazas_disponibles"),
+                    rs.getString("Nombre_Categoria")
+                });
             }
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return array_evento;
 
     }
-    
-    public void Crear_Evento(){
+
+
+    public void Crear_Evento() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
-            
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //ESTO ES EL CODIGO DE EL PANEL DE RESERVA DEL ADMINISTRADOR
-    
 }
