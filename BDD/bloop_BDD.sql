@@ -55,13 +55,53 @@ Lista_Acompaniantes TEXT,
 FOREIGN KEY (Id_reserva) REFERENCES Reservas (Id_reserva) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- Usuarios
 INSERT INTO Usuario (Nombre, Contrasena, nivel_acceso) VALUES
 ('admin1', '1234', 1), -- Administrador
 ('usuario1', '1234', 0); -- Usuario General
 
+-- Contacto del usuario
 INSERT INTO Contacto_usuario (Id_Usuario, Telefono, Email) VALUES
 (1, 601238327, "admin1@gmail.com"), -- Administrador
 (2, 646312835, "usuario1@gmail.com"); -- Usuario General
+
+-- Tipos de Reserva
+INSERT INTO tipo_reserva (Tipo) VALUES
+('Normal'),
+('VIP');
+
+-- Categorías de Evento
+INSERT INTO categoria_evento (Categoria) VALUES
+('Tardeo'),
+('Concierto'),
+('Charla'),
+('Taller');
+
+-- Eventos
+INSERT INTO evento (Id_Categoria_Evento, Titulo, Fecha, Ubicacion, Plazas_totales, Plazas_disponibles) VALUES
+(1, 'Tardeo Primavera', '2025-06-01', 'Terraza Centro', 80, 80),
+(2, 'Concierto Pop', '2025-06-10', 'Auditorio Norte', 150, 150),
+(3, 'Charla Motivacional', '2025-06-15', 'Sala Roja', 60, 60),
+(4, 'Taller de Fotografía', '2025-06-20', 'Aula Creativa', 25, 25);
+
+-- Reservas
+INSERT INTO reservas (Id_usuario, Id_evento, Id_Tipo_Reserva, Fecha_Reserva, num_entradas) VALUES
+(2, 1, 1, '2025-05-12', 1),  -- Normal individual
+(2, 2, 2, '2025-05-12', 4);  -- VIP grupal
+
+-- Reserva Grupal (solo para la segunda reserva, ID = 2)
+INSERT INTO reserva_grupal (Id_reserva, Lista_Acompaniantes) VALUES
+(2, 'Lucía Pérez, Andrés Gil, Sonia Ramos');
+
+
+/*SELECT * FROM categoria_evento;
+SELECT * FROM contacto_usuario;
+SELECT * FROM evento;
+SELECT * FROM reserva_grupal;
+SELECT * FROM reservas;
+SELECT * FROM tipo_reserva;
+SELECT * FROM usuario;*/ 
+
 
 
 
