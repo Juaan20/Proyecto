@@ -40,6 +40,7 @@ public class Conect_BD {
     //ESTO ES EL CODIGO DE EL INICIO DE SESION
     public void Inicio_Sesion(JTextField JT, JPasswordField JP) {
 
+        //LO QUE HACEMOS AQUI ES QUE LE PEDIMOS UN FIELD Y UN PASSWORD ASI HACEMOS LA CONSULTA
         try {
             if (!JT.getText().equals("") || !JP.getText().equals("")) {
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -51,8 +52,11 @@ public class Conect_BD {
                 ps.setString(2, new String(JP.getPassword()));  // Convierte el password char[] a String
 
                 rs = ps.executeQuery();
-
+                
+                //SI LA CONSULTA A DADO RESULTADO NO HACE EL IF
+                
                 if (rs.next()) {
+                    //QUE NOS METE EL BOOLEAN DE EL NIVEL EN UNA VARAIBLE Y LA SACAMOS FUERRA
                     resultado = String.valueOf(rs.getBoolean("nivel_acceso"));
                     System.out.println(resultado);
                 } else {
@@ -71,6 +75,9 @@ public class Conect_BD {
     }
 
     // ESTO ES EL CODIGO DE EL PANEL DE CONTROL DE EVENTOS DEL ADMINISTRADOR
+    
+    //ESTE METODO ES PARA QUE EL COMBOBOX SE VEA LOS NOMBRE DE LAS CATEGORIAS A TIEMPO REAL YA COMO LE PASAMOS
+    //EL COMBO LO EDITAMOS EN EL PROPIO METODO
     public void Ver_Categoria(JComboBox jc) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -93,6 +100,8 @@ public class Conect_BD {
         }
     }
     
+    //ESTE METODO ES PARA PODER ELIMINAR LA CATEGORIA LO QUE HACEMOS ES DESDE EL COMBOBOX LE PASAMOS EL NOMBRE Y 
+    //ENBASE A EL NOMBRE EN LA CONSULTA LO ELIMINAMOS
     public void Eliminar_Categoria(String Categoria){
         
         try {
@@ -111,6 +120,7 @@ public class Conect_BD {
         }
     }
 
+    //LO MIMSO QUE EL DE ARRIBA PARA AÑADIR LA CATEGORIA NUEVA LE PASAMOS EL NOMBRE Y LA CREA EN LA CONSULTA
     public void Añadir_Categoria(JTextField jt) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -130,6 +140,10 @@ public class Conect_BD {
 
     }
 
+    //ESTE METODO DE VER EVENTO ES UN METODO QUE DEVOLVEMOS UN ARRAY DE LA INFOAMCION Y LE PEDIMOS UN JTABLE PARA 
+    //AÑADIR LAS ROW Y VERLAS 
+    //ESTE PODRIA SER UN METODO VOID PERO COMO LUEGO NECESITAMOS UN ARRAY CON TODO LA INFORMACION 
+    //SE LO PASAMOS YA ASI YA LO TENEMOS
     public ArrayList<Evento> Ver_Evento(JTable jt) {
 
         ArrayList<Evento> arrayList_Eventos = new ArrayList<>();
@@ -167,12 +181,13 @@ public class Conect_BD {
 
                 modelo.addRow(new Object[]{
                     rs.getInt("Id_evento"),
+                    rs.getString("Nombre_Categoria"),
                     rs.getString("Titulo"),
                     rs.getDate("Fecha"),
                     rs.getString("Ubicacion"),
                     rs.getInt("Plazas_totales"),
-                    rs.getInt("Plazas_disponibles"),
-                    rs.getString("Nombre_Categoria")
+                    rs.getInt("Plazas_disponibles")
+                    
                 });
             }
 
@@ -185,6 +200,7 @@ public class Conect_BD {
 
     }
 
+    //ESTE METODO NOS CREAR UN EVENTO COMO LE PASMOS UN OBJETO QUE ES EL QUE CREAMOS Y HACEMOS LA CONSUTA   
     public void Crear_Evento(Evento EV) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -210,6 +226,8 @@ public class Conect_BD {
         }
     }
 
+    
+    //ESTE METODO ES LO MISMO QUE EL DE CREAR LO UNICO QUE EDITA LA CONSULA DEPENDIENDO DEL ID GRACIAS AL OBJETO QUE LE PASAMOS
     public void Editar_Evento(Evento EV) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -246,6 +264,7 @@ public class Conect_BD {
 
     }
     
+    //ESTE METODO ELIMINA EL ELEMENTO DEPENDIDO DEL ID QUE SE LO PEDIMOS ANTERIORMENTE Y GRACIAS A ESO HACEMOS LA CONSULTA DE DELETE
     public void Eliminar_Evento(int id){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

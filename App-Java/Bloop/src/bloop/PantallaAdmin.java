@@ -195,7 +195,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jToggleButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(PanelEventosLayout.createSequentialGroup()
@@ -253,7 +253,9 @@ public class PantallaAdmin extends javax.swing.JFrame {
                 .addGap(127, 127, 127))
         );
 
+        PanelReservas.setMaximumSize(new java.awt.Dimension(872, 544));
         PanelReservas.setMinimumSize(new java.awt.Dimension(872, 574));
+        PanelReservas.setPreferredSize(new java.awt.Dimension(872, 574));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel9.setText("Panel de Reservas");
@@ -551,6 +553,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                     // Acción a realizar si dice "Sí"
                     JOptionPane.showMessageDialog(null, "ID del evento a eliminar: " + numero + "\n¡Acción realizada!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     objCont.Eliminar_Evento(Integer.parseInt(numero));
+                    jButton3.doClick();
                 } else {
                     // Si dice "No"
                     JOptionPane.showMessageDialog(null, "Acción cancelada.", "Cancelado", JOptionPane.INFORMATION_MESSAGE);

@@ -109,17 +109,23 @@ public class PantallPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         objConect_BD.Inicio_Sesion(jTextField1, jPasswordField1);
 
+        //GENERAMOS EL OBJETO AÑADIENDO EL FIEL DEL NOMBRE Y EL PASSWOR DE LA CONRSASEÑA
+        //HACEMOS UN IF QUE SI NO HAY NADA ESCRITO NOS SAQUE UN MESAJE DE QUE RELLENE LOS CAMPOS
+        
         if (!jTextField1.getText().equals("") || !jPasswordField1.getText().equals("")) {
+            //SI NO ES LE CASO DE QUE LOS CAMPOS NO ESTAN VACION NOS COMPRUEBA LA VARIABLE DEL BOOLEAN QUE SACAMOS ANTES SI ES TRUE 
+            //SIGNIFICA QUE ES ADMINSITRADOR Y LE ABRE LA PESTAÑA DEL ADMINITRADOR
             if (objConect_BD.resultado.equals("true")) {
                 setVisible(false);
                 Obj_pantallaAdmin.setVisible(true);
             }
-
+            //SI ES FALSE SIGNIFICA QUE ES USUARIO Y NOS HABRE LA VENTANA DE USUARIO
             if (objConect_BD.resultado.equals("false")) {
                 setVisible(false);
                 obj_pantauser.setVisible(true);
             }
 
+            //SI NO DUELVE NADA ES EL CASO DE QUE ES INCORRECTO NOS SACA UN MENSAJE DE QUE ES INCORRECTO
             if (objConect_BD.resultado.equals("")) {
                 jPasswordField1.setText("");
                 JOptionPane.showMessageDialog(null, "El Usuario o Contraseña es incorrecta", "Bloop", JOptionPane.INFORMATION_MESSAGE);
