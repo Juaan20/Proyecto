@@ -49,6 +49,12 @@ FOREIGN KEY (Id_evento) REFERENCES Evento(Id_evento) ON DELETE CASCADE ON UPDATE
 FOREIGN KEY (Id_Tipo_Reserva) REFERENCES Tipo_reserva(Id_Tipo_reserva) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE Reserva_Grupal(
+Id_reserva INT PRIMARY KEY,
+Lista_Acompaniantes TEXT,
+FOREIGN KEY (Id_reserva) REFERENCES Reservas (Id_reserva) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 INSERT INTO Usuario (Nombre, Contrasena, nivel_acceso) VALUES
 ('admin1', '1234', 1), -- Administrador
 ('usuario1', '1234', 0); -- Usuario General
