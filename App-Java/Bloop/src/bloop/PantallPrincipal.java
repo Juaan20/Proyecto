@@ -123,6 +123,7 @@ public class PantallPrincipal extends javax.swing.JFrame {
             if (objConect_BD.resultado.equals("false")) {
                 setVisible(false);
                 obj_pantauser.setVisible(true);
+                obj_pantauser.ID(objConect_BD.ID);
             }
 
             //SI NO DUELVE NADA ES EL CASO DE QUE ES INCORRECTO NOS SACA UN MENSAJE DE QUE ES INCORRECTO
