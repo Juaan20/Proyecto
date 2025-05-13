@@ -4,6 +4,8 @@
  */
 package bloop;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victus
@@ -21,6 +23,7 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
     PantallaAdmin Obj_pantallaAdmin = new PantallaAdmin();
     PantallaUsuario obj_pantauser = new PantallaUsuario();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +42,8 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(217, 217, 217));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
         setMaximumSize(new java.awt.Dimension(400, 500));
         setMinimumSize(new java.awt.Dimension(400, 500));
 
@@ -47,7 +52,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(184, 180, 180));
         jTextField1.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel2.setText("Usuario:");
@@ -57,7 +61,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(73, 94, 180));
         jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Iniciar Sesion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +69,6 @@ public class PantallPrincipal extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(new java.awt.Color(184, 180, 180));
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,12 +109,30 @@ public class PantallPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         objConect_BD.Inicio_Sesion(jTextField1, jPasswordField1);
 
-        if (objConect_BD.resultado) {
-            setVisible(false);
-            Obj_pantallaAdmin.setVisible(true);
+        //GENERAMOS EL OBJETO AÑADIENDO EL FIEL DEL NOMBRE Y EL PASSWOR DE LA CONRSASEÑA
+        //HACEMOS UN IF QUE SI NO HAY NADA ESCRITO NOS SAQUE UN MESAJE DE QUE RELLENE LOS CAMPOS
+        
+        if (!jTextField1.getText().equals("") || !jPasswordField1.getText().equals("")) {
+            //SI NO ES LE CASO DE QUE LOS CAMPOS NO ESTAN VACION NOS COMPRUEBA LA VARIABLE DEL BOOLEAN QUE SACAMOS ANTES SI ES TRUE 
+            //SIGNIFICA QUE ES ADMINSITRADOR Y LE ABRE LA PESTAÑA DEL ADMINITRADOR
+            if (objConect_BD.resultado.equals("true")) {
+                setVisible(false);
+                Obj_pantallaAdmin.setVisible(true);
+            }
+            //SI ES FALSE SIGNIFICA QUE ES USUARIO Y NOS HABRE LA VENTANA DE USUARIO
+            if (objConect_BD.resultado.equals("false")) {
+                setVisible(false);
+                obj_pantauser.setVisible(true);
+                obj_pantauser.ID(objConect_BD.ID);
+            }
+
+            //SI NO DUELVE NADA ES EL CASO DE QUE ES INCORRECTO NOS SACA UN MENSAJE DE QUE ES INCORRECTO
+            if (objConect_BD.resultado.equals("")) {
+                jPasswordField1.setText("");
+                JOptionPane.showMessageDialog(null, "El Usuario o Contraseña es incorrecta", "Bloop", JOptionPane.INFORMATION_MESSAGE);
+            }
         }else{
-            setVisible(false);
-            obj_pantauser.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Debes rellenar los campos, para poder acceder", "Bloop", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
