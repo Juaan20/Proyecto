@@ -321,21 +321,18 @@ public class Conect_BD {
     }
 
     //AQUI SE ENCUENTRA EL CODIGO DE LA PANTALLA DE LOS USUARIO
-    String Nombre;
-    
     public void Nombre_User(int id, JLabel jt) {
 
-          
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
-            
+
             String SQL = "SELECT Nombre FROM usuario WHERE Id_usuario = ?";
             PreparedStatement ps = cn.prepareStatement(SQL);
             ps.setInt(1, id); // <- más seguro que concatenar
-            
+
             rs = ps.executeQuery();
-            
+
             if (rs.next()) {
                 jt.setText(jt.getText() + " " + rs.getString("Nombre"));
             } else {
@@ -347,4 +344,59 @@ public class Conect_BD {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<Evento> Ver_Eventos_User(JTable jt) {
+
+        ArrayList<Evento> arrayList_Eventos = new ArrayList<>();
+
+        try {
+
+            DefaultTableModel vaciar_tabla = (DefaultTableModel) jt.getModel();
+            vaciar_tabla.setNumRows(0);
+            jt.setModel(vaciar_tabla);
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            String SQL = "SELECT "
+                    + "e.Id_evento, e.Titulo, e.Fecha, e.Ubicacion, e.Plazas_totales, e.Plazas_disponibles, "
+                    + "c.Categoria AS Nombre_Categoria "
+                    + "FROM Evento e "
+                    + "JOIN Categoria_evento c ON e.Id_Categoria_Evento = c.Id_Categoria_Evento";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            rs = ps.executeQuery();
+
+            DefaultTableModel modelo = (DefaultTableModel) jt.getModel();
+            while (rs.next()) {
+                Evento objEvento = new Evento();
+
+                objEvento.setID(rs.getInt("Id_evento"));
+                objEvento.setCategoria(rs.getString("Nombre_Categoria"));
+                objEvento.setTitulo(rs.getString("Titulo"));
+                objEvento.setFecha(rs.getDate("Fecha"));
+                objEvento.setUbicacion(rs.getString("Ubicacion"));
+                objEvento.setPlazas_Totales(rs.getInt("Plazas_totales"));
+                objEvento.setPlazas_Disponibles(rs.getInt("Plazas_disponibles"));
+
+                arrayList_Eventos.add(objEvento);
+
+                modelo.addRow(new Object[]{
+                    rs.getString("Titulo"),
+                    rs.getString("Nombre_Categoria"),
+                    rs.getDate("Fecha"),
+                    rs.getString("Ubicacion"),
+                    rs.getInt("Plazas_disponibles")
+
+                });
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrayList_Eventos;
+
+    }
+
 }

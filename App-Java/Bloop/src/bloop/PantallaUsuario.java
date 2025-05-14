@@ -4,6 +4,8 @@
  */
 package bloop;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Victus
@@ -20,6 +22,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
     Conect_BD objCon = new Conect_BD();
     int ID;
     String Nombre;
+    
+    ArrayList<Evento> array_Evento = new ArrayList<>();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,6 +96,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         objCon.Nombre_User(ID, jLabel1);
+        
+        array_Evento=objCon.Ver_Eventos_User(jTable1);
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
