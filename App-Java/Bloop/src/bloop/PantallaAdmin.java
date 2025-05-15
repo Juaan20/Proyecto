@@ -252,9 +252,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                 .addGap(127, 127, 127))
         );
 
-        PanelReservas.setMaximumSize(new java.awt.Dimension(872, 574));
         PanelReservas.setMinimumSize(new java.awt.Dimension(872, 574));
-        PanelReservas.setPreferredSize(new java.awt.Dimension(872, 574));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel9.setText("Panel de Reservas");

@@ -399,4 +399,102 @@ public class Conect_BD {
 
     }
 
+    public void Hacer_Reserva(Reserva res) {
+
+        String SQL = "";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            SQL = "INSERT INTO reservas (Id_usuario, Id_evento, Id_Tipo_Reserva, Fecha_Reserva, num_entradas) "
+                    + "VALUES (?, "
+                    + "(SELECT Id_evento FROM evento WHERE Titulo = ? LIMIT 1), "
+                    + "(SELECT Id_Tipo_reserva FROM tipo_reserva WHERE Tipo = ? LIMIT 1), CURDATE(), ?)";
+
+            PreparedStatement ps = cn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, res.getID());
+            ps.setString(2, res.getEvento());
+            ps.setString(3, res.getTipo_Reserva());
+
+            ps.setInt(4, res.getNumero_Entradas());
+
+            int filasAfectadas = ps.executeUpdate(); // ✅ Para INSERT
+
+            if (filasAfectadas > 0) {
+                // Obtener el ID generado de la reserva
+                ResultSet generatedKeys = ps.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int idReserva = generatedKeys.getInt(1);
+
+                    if (res.getNumero_Entradas() >= 2) {  // Si es grupal, insertar acompañantes
+                        String sqlGrupal = "INSERT INTO reserva_grupal (Id_reserva, Lista_Acompaniantes) VALUES (?, ?)";
+                        PreparedStatement psGrupal = cn.prepareStatement(sqlGrupal);
+                        psGrupal.setInt(1, idReserva);
+                        psGrupal.setString(2, res.getNombres_Acompañantes()); // Ejemplo: "Lucía Pérez, Andrés Gil, Sonia Ramos"
+                        psGrupal.executeUpdate();
+                        psGrupal.close();
+                    }
+                }
+                generatedKeys.close();
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void ver_entrada(JComboBox jc) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            String SQL = "SELECT Tipo FROM tipo_reserva";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            jc.removeAllItems(); // Opcional: limpia el combo antes de agregar nuevos elementos
+
+            while (rs.next()) {
+                String categoria = rs.getString("Tipo");
+                jc.addItem(categoria);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void ver_Reserva(JTable jt, int id) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
+
+            String SQL = "SELECT e.Titulo, r.num_entradas, e.Fecha FROM Reservas r JOIN Evento e ON r.Id_evento = e.Id_evento WHERE r.Id_usuario = ?;";
+            PreparedStatement ps = cn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            DefaultTableModel vaciar_tabla = (DefaultTableModel) jt.getModel();
+            vaciar_tabla.setNumRows(0);
+            jt.setModel(vaciar_tabla);
+
+            DefaultTableModel modelo = (DefaultTableModel) jt.getModel();
+            while (rs.next()) {
+
+                modelo.addRow(new Object[]{
+                    rs.getString("Titulo"),
+                    rs.getInt("num_entradas"),
+                    rs.getDate("Fecha")
+
+                });
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

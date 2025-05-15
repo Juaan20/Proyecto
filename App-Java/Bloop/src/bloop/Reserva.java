@@ -12,11 +12,10 @@ import java.sql.Date;
  */
 public class Reserva {
     private int ID;
-    private String Usuario;
     private String Evento;
     private String Tipo_Reserva;
-    private Date Fecha;
     private int Numero_Entradas;
+    private String Nombres_Acompañantes;
 
     public Reserva() {
     }
@@ -33,20 +32,6 @@ public class Reserva {
      */
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    /**
-     * @return the Usuario
-     */
-    public String getUsuario() {
-        return Usuario;
-    }
-
-    /**
-     * @param Usuario the Usuario to set
-     */
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
     }
 
     /**
@@ -77,20 +62,7 @@ public class Reserva {
         this.Tipo_Reserva = Tipo_Reserva;
     }
 
-    /**
-     * @return the Fecha
-     */
-    public Date getFecha() {
-        return Fecha;
-    }
-
-    /**
-     * @param Fecha the Fecha to set
-     */
-    public void setFecha(Date Fecha) {
-        this.Fecha = Fecha;
-    }
-
+    
     /**
      * @return the Numero_Entradas
      */
@@ -103,6 +75,20 @@ public class Reserva {
      */
     public void setNumero_Entradas(int Numero_Entradas) {
         this.Numero_Entradas = Numero_Entradas;
+    }
+
+    /**
+     * @return the Nombres_Acompañantes
+     */
+    public String getNombres_Acompañantes() {
+        return Nombres_Acompañantes;
+    }
+
+    /**
+     * @param Nombres_Acompañantes the Nombres_Acompañantes to set
+     */
+    public void setNombres_Acompañantes(String Nombres_Acompañantes) {
+        this.Nombres_Acompañantes = Nombres_Acompañantes;
     }
     
     
