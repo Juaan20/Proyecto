@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
@@ -479,7 +480,7 @@ public class Conect_BD {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloop", "root", "");
 
-            String SQL = "SELECT e.Titulo, r.num_entradas, e.Fecha FROM Reservas r JOIN Evento e ON r.Id_evento = e.Id_evento WHERE r.Id_usuario = ?;";
+            String SQL = "SELECT e.Titulo, r.num_entradas, r.Fecha_Reserva FROM Reservas r JOIN Evento e ON r.Id_evento = e.Id_evento WHERE r.Id_usuario = ?;";
             PreparedStatement ps = cn.prepareStatement(SQL);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -493,7 +494,7 @@ public class Conect_BD {
                 modelo.addRow(new Object[]{
                     rs.getString("Titulo"),
                     rs.getInt("num_entradas"),
-                    rs.getDate("Fecha")
+                    rs.getDate("Fecha_Reserva")
 
                 });
             }
