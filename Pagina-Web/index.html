@@ -16,13 +16,13 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top ">
+    <nav class="navbar fixed-top">
         <div class="container-fluid">
-            <a href="#"><img src="./Logo-bloop.png" alt="Logo-Bloop" class="navbar-brand texto-header"></a>
+            <a href="#"><img src="./Logo-bloop.png" alt="Logo-Bloop" class="navbar-brand img-fluid logo-bloop"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
-                style="border-radius: 25px;  backdrop-filter: blur(10px); border: 3px solid black;">
-                <span class="navbar-toggler-icon" style="color: black;"></span>
+                style="border-radius: 25px; backdrop-filter: blur(10px); border: 3px solid black;">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="offcanvas offcanvas-end Menu" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
@@ -31,7 +31,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
@@ -50,81 +50,100 @@
         </div>
     </nav>
 
-    <div id="#home" class="home">
-        <h1 class="home1"><strong> LA FIESTA TE <br>LLAMA <a href="https://www.promofarma.com/es/search?q=ibuprofeno" target="_blank"><img src="32sx.gif" width="150px"></a>,<BR> BLOOP</strong></h1>
-        <p class="home3"><strong> BLOOP ES UNA APLICACIÓN DE VENTA DE ENTRADAS PENSADA PARA QUE DEJES TUS BOLSILLOS PARA OTRAS COSAS </strong></p>
-    </div>
-    <div id="que-es-bloop" class="que-es-bloop">
-        <h1>¿QUIENES SOMOS?</h1>
-        <h3 style="color:black">EN BLOOP NOS DEDICAMOS A LA GESTION DE EVENTOS Y FIESTAS PARA QUE NO TE PIERDAS NINGUNA
-            NOCHE DE DIVERSION,
-            BAILE Y JANGUEO, SAL Y DISFRUTA CON TUS AMIGOS SIEMPRE ACOMPAÑADO DE BLOOP</h3>
-        <h2>MODO DE USO</h2>
-        <h3 style="color:black">ENTRA, COMPRA, CONSIGUE TU CÓDIGO Y DISFRUTA</h3>
-
-        <div class="entradas">
-            <img src="./entrada1.jpg" alt="Entrada 1" style="transform: rotate(15deg);">
-            <img src="./Logo-bloop.png" alt="Logo-Bloop" style="width: 275px ;height: 300px;">
-            <img src="./entrada2.jpg" alt="Entrada 2" style="transform: rotate(-15deg);">
+    <div id="home" class="home d-flex flex-column justify-content-center align-items-center text-center min-vh-100">
+        <div class="container">
+            <h1 class="home1"><strong> LA FIESTA TE <br>LLAMA <a href="https://www.promofarma.com/es/search?q=ibuprofeno" target="_blank"><img src="32sx.gif" class="gif-ibuprofeno img-fluid" alt="ibuprofeno gif"></a>,<BR> BLOOP</strong></h1>
+            <p class="home3 lead"><strong> BLOOP ES UNA APLICACIÓN DE VENTA DE ENTRADAS PENSADA PARA QUE DEJES TUS BOLSILLOS PARA OTRAS COSAS </strong></p>
         </div>
-
-
     </div>
-    <div id="eventos" class="eventos">
-        <img src="./evento.jpg" alt="eventos" class="img-evento-1" >
-        <img src="./evento-2.jpg" alt="eventos" class="img-evento-2" >
+
+    <div id="que-es-bloop" class="que-es-bloop py-5">
+        <div class="container text-center">
+            <h1>¿QUIENES SOMOS?</h1>
+            <p class="h3 mb-4" style="color:black">EN BLOOP NOS DEDICAMOS A LA GESTION DE EVENTOS Y FIESTAS PARA QUE NO TE PIERDAS NINGUNA
+                NOCHE DE DIVERSION,
+                BAILE Y JANGUEO, SAL Y DISFRUTA CON TUS AMIGOS SIEMPRE ACOMPAÑADO DE BLOOP</p>
+            <h2>MODO DE USO</h2>    
+            <p class="h3 mb-5" style="color:black">ENTRA, COMPRA, CONSIGUE TU CÓDIGO&nbsp;Y&nbsp;DISFRUTA</p>
+
+            <div class="row align-items-center justify-content-center entradas">
+                <div class="col-lg-3 col-md-4 col-6 mb-4 mb-md-0">
+                    <img src="./entrada1.jpg" alt="Entrada 1" class="img-fluid rounded shadow" style="transform: rotate(15deg);">
+                </div>
+                <div class="col-lg-4 col-md-4 col-6 mb-4 mb-md-0 text-center">
+                    <img src="./Logo-bloop.png" alt="Logo-Bloop" class="img-fluid logo-entrada">
+                </div>
+                <div class="col-lg-3 col-md-4 col-12 mb-4 mb-md-0 mt-4 mt-md-0">
+                    <img src="./entrada2.jpg" alt="Entrada 2" class="img-fluid rounded shadow" style="transform: rotate(-15deg);">
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="contacto" class="contacto">
 
-        <h1><strong>CONTACTO</strong></h1>
-        <form action="#">
-            <div class="card" style="width: 35rem;">
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="nombre@gmail.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <input type="button" class="btn btn-primary boton" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" value="Enviar">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Bloop</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Gracias por tu mensaje, nos pondremos en contacto contigo lo antes posible.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                        style="background-color: orangered;">Cerrar</button>
+    <div id="eventos" class="eventos py-5 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="container text-center">
+            <img src="./evento.jpg" alt="eventos" class="img-fluid d-none d-lg-block">
+            <img src="./evento-2.jpg" alt="eventos" class="img-fluid d-lg-none">
+        </div>
+    </div>
 
+    <div id="contacto" class="contacto py-5 min-vh-100 d-flex flex-column justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9">
+                    <h1 class="text-center mb-4"><strong>CONTACTO</strong></h1>
+                    <form action="#">
+                        <div class="card shadow-lg">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="nombre@gmail.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <input type="button" class="btn btn-primary boton" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" value="Enviar">
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bloop</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Gracias por tu mensaje, nos pondremos en contacto contigo lo antes posible.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                                    style="background-color: orangered;">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-    <footer>
-        <div class="footer">
-            <p class="texto-footer">Bloop &copy; 2025</p>
-            <p class="texto-footer">Todos los derechos reservados</p>
-            <p class="texto-footer">Desarrollado por: Rafael, Izan, Juan Antonio, Liria </p>
+
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="texto-footer mb-1">Bloop &copy; 2025</p>
+            <p class="texto-footer mb-1">Todos los derechos reservados</p>
+            <p class="texto-footer mb-0">Desarrollado por: Rafael, Izan, Juan Antonio, Liria </p>
         </div>
     </footer>
 
-    <div class="burbujas">
-        <div></div>
+    <div class="burbujas d-none d-md-block"> <div></div>
         <div></div>
         <div></div>
         <div></div>
@@ -133,7 +152,5 @@
         <div></div>
     </div>
 
-
 </body>
-
 </html>

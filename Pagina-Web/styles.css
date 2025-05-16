@@ -1,32 +1,35 @@
-:root{
+:root {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body{
+body {
     background-color: rgb(255, 255, 255);
+    /* Para evitar que el contenido quede debajo del navbar fijo */
+    padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
 }
-nav{
-    margin-top: -10px; 
-    background-color: rgba(255, 255, 255, 0);
+
+nav {
+    /* margin-top: -10px; Ya no es necesario con fixed-top y padding-top en body */
+    background-color: rgba(255, 255, 255, 0.8); /* Ligeramente opaco para legibilidad */
+    backdrop-filter: blur(5px); /* Reducido un poco el blur para rendimiento si es necesario */
 }
-nav img{
-    width: 95px;
+
+.logo-bloop { /* Clase específica para el logo en la navbar */
+    max-width: 80px; /* Ajusta según necesites */
     margin: 0;
     padding: 0;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter ya no es necesario aquí si está en nav */
     border-radius: 25%;
 }
-.texto-header{
+
+.texto-header { /* Esta clase no estaba siendo usada en el HTML proporcionado */
     font-size: 2em;
     font-weight: 700;
 }
-.Menu{
-    background-color:rgb(255, 255, 255);
-    
+
+.Menu {
+    background-color: rgb(255, 255, 255);
 }
-
-
-
 
 .burbujas div {
     background: rgb(255, 145, 35);
@@ -34,150 +37,159 @@ nav img{
     position: absolute;
     bottom: 0;
     animation: animarburbujas 4s linear infinite;
-  }
-  
-  .burbujas div:nth-child(1) {
+    z-index: -1; /* Para que estén detrás del contenido */
+}
+
+.burbujas div:nth-child(1) {
     width: 50px;
     height: 45px;
     left: 40px;
     animation-duration: 4s;
-  }
-  
-  .burbujas div:nth-child(2) {
+}
+
+.burbujas div:nth-child(2) {
     width: 60px;
     height: 55px;
     left: 25%;
     animation-duration: 8s;
-  }
-  
-  .burbujas div:nth-child(3) {
+}
+
+.burbujas div:nth-child(3) {
     width: 30px;
     height: 27px;
     left: 40%;
     animation-duration: 5s;
-  }
-  
-  .burbujas div:nth-child(4) {
+}
+
+.burbujas div:nth-child(4) {
     width: 65px;
     height: 60px;
     left: 50%;
     animation-duration: 10s;
-  }
-  
-  .burbujas div:nth-child(5) {
+}
+
+.burbujas div:nth-child(5) {
     width: 55px;
     height: 50px;
     left: 65%;
     animation-duration: 6.5s;
-  }
-  
-  .burbujas div:nth-child(6) {
+}
+
+.burbujas div:nth-child(6) {
     width: 50px;
     height: 48px;
     left: 85%;
     animation-duration: 9s;
-  }
-  
-  .burbujas div:nth-child(7) {
+}
+
+.burbujas div:nth-child(7) {
     width: 35px;
     height: 32px;
     left: 90%;
     animation-duration: 6s;
-  }
-  
-  @keyframes animarburbujas {
+}
+
+@keyframes animarburbujas {
     0% {
-      width: 0;
-      height: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
     }
     3% {
-      width: 30px;
-      height: 27px;
+        width: 30px; /* Ajustado para ser visible antes */
+        height: 27px; /* Ajustado para ser visible antes */
+        opacity: 0.2;
     }
     50% {
-      margin-left: 20px;
-      opacity: 0.5;
+        margin-left: 20px;
+        opacity: 0.5;
     }
     100% {
-      transform: rotate(90deg);
-      bottom: 100vh;
-      background: rgb(255, 187, 114);
+        transform: translateY(-100vh) rotate(90deg); /* translateY para moverlo hacia arriba */
+        bottom: 100vh; /* Asegura que desaparece arriba */
+        background: rgb(255, 187, 114);
+        opacity: 0;
     }
-  }
+}
 
 /* home */
-
-.home{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-   
-}
-.home1{
-  font-size: 8rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 82%;
-  text-transform: uppercase;
-  margin-bottom: 100px;
-  text-align: center;
-  color:orangered;
+.home {
+    /* height: 100vh; Reemplazado por min-vh-100 de Bootstrap y flex para centrar */
+    /* Las clases de Bootstrap d-flex flex-column justify-content-center align-items-center text-center min-vh-100 manejan esto */
 }
 
-.home3{
-  font-size: 1.5625rem;
-  font-weight: 400;
-  line-height: 90%;
-  text-transform: uppercase;
-  padding: 0px 400px 0px 400px;
-  text-align: center;
-}
-/* que es bloop */
-
-.que-es-bloop{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color:orangered;
-    padding: 45px 0px 0px 0px ;
+.home1 {
+    font-size: 7rem; /* Reducido para mejor adaptabilidad, usa clases de display de BS o media queries si necesitas más control */
+    font-style: normal;
+    font-weight: 400; /* Bootstrap tiene fw-bold, fw-normal etc. */
+    line-height: 1.2; /* Ajustado */
+    text-transform: uppercase;
+    margin-bottom: 2rem; /* Ajustado */
+    color: orangered;
 }
 
-.que-es-bloop h1{
-    font-size: 50px;
-    margin-bottom: 30px;
+.gif-ibuprofeno {
+    width: 100px; /* Ajusta el tamaño del GIF */
+    vertical-align: middle; /* Mejor alineación con el texto */
 }
 
-.que-es-bloop h3{
+.home3 {
+    font-size: 1.25rem; /* class="lead" de Bootstrap ya hace esto */
+    /* font-weight: 400; */
+    line-height: 1.5;
+    text-transform: uppercase;
+    /* padding: 0px 400px 0px 400px; Eliminado, el container se encarga del padding lateral */
     text-align: center;
-    font-size: 25px;
-    padding: 0px 45px 0px 45px;
-    margin-bottom: 30px;
 }
 
-.entradas{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
+/* que es bloop */
+.que-es-bloop {
+    /* height: 100vh; py-5 y el contenido definirán la altura */
+    /* display: flex; align-items: center; flex-direction: column; Se maneja con Bootstrap y text-center */
+    color: orangered;
+    /* padding: 45px 0px 0px 0px ; Reemplazado por py-5 en el HTML */
 }
 
-.entradas img{
-    width: 200px;
+.que-es-bloop h1 {
+    font-size: 2.5rem; /* Ajustado */
+    margin-bottom: 1.5rem; /* Ajustado */
+}
+
+.que-es-bloop h2 {
+    font-size: 2rem; /* Ajustado */
+    margin-top: 2rem;
+    margin-bottom: 1rem; /* Ajustado */
+}
+
+.que-es-bloop .h3 { /* Usando la clase .h3 de Bootstrap o ajustando p */
+    font-size: 1.25rem; /* Ajustado */
+    /* padding: 0px 45px 0px 45px; El container se encarga del padding lateral */
+    margin-bottom: 1.5rem; /* Ajustado */
+}
+
+.entradas {
+    /* display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; Manejado por row y col de Bootstrap */
+}
+
+.logo-entrada {
+    max-width: 220px; /* Controla el tamaño del logo en esta sección */
+    height: auto;
+}
+
+.entradas img {
+    /* width: 200px; Manejado por col y img-fluid */
     border-radius: 15px;
 }
 
 /* eventos */
-.eventos{
-
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.eventos {
+    /* height: 100vh; min-vh-100 y py-5 en HTML */
+    /* display: flex; justify-content: center; align-items: center; Manejado por d-flex en HTML */
 }
 
+/* Las siguientes clases y media queries para img-evento-1 y img-evento-2
+   se reemplazan con las clases de display de Bootstrap (d-none, d-lg-block, etc.) en el HTML */
+/*
 .img-evento-1{
   width: 1450px;display: block;
 }
@@ -200,37 +212,86 @@ nav img{
         display: block;
     }
 }
+*/
 
 /* contacto */
-.contacto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+.contacto {
+    /* display: flex; justify-content: center; align-items: center; flex-direction: column; min-vh-100 y d-flex en HTML */
+    /* height: 100vh; min-vh-100 y py-5 en HTML */
 }
-.contacto h1{
-    font-size: 70px;
-    margin-bottom: 100px;
+
+.contacto h1 {
+    font-size: 2.8rem; /* Ajustado */
+    /* margin-bottom: 100px; Controlado por mb-4 en HTML */
 }
-.contacto .boton{
-    padding: 5px 240px 5px 240px;
+
+.contacto .boton {
+    /* padding: 5px 240px 5px 240px; Eliminado, d-grid hace que ocupe el ancho */
     background-color: orangered;
-    border: 1px solid rgb(255, 171, 87);
+    border: 1px solid rgb(255, 171, 87); /* Considera usar las clases de outline de Bootstrap si quieres un borde diferente al default */
+    padding-top: 0.75rem; /* Ajuste de padding vertical si es necesario */
+    padding-bottom: 0.75rem;
+}
+
+.contacto .boton:hover {
+    background-color: #e06200; /* Un color un poco más oscuro para el hover */
+    border-color: #d35400;
 }
 
 
 /* footer */
-
-.footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 14vh;
+.footer {
+    /* display: flex; justify-content: center; align-items: center; flex-direction: column; py-4 y text-center en HTML */
+    /* height: 14vh; py-4 define la altura */
     background-color: rgb(220, 220, 220);
 }
-.footer p{
-    margin: 0;
-    padding: 0;
+
+.footer p {
+    margin-bottom: 0.25rem; /* Ajustado con clases de Bootstrap en HTML */
+    /* padding: 0; */
+}
+
+/* Ajustes de fuente para pantallas más pequeñas usando Media Queries si es necesario */
+@media (max-width: 768px) {
+  .entradas{
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra los elementos */
+  }
+    .home1 {
+        font-size: 2.8rem; /* Más pequeño en tablets y móviles */
+    }
+    .gif-ibuprofeno {
+        width: 80px;
+    }
+    .home3 {
+        font-size: 1rem;
+    }
+    .que-es-bloop h1 {
+        font-size: 2rem;
+    }
+    .que-es-bloop h2 {
+        font-size: 1.75rem;
+    }
+    .que-es-bloop .h3, .que-es-bloop p { /* p tags dentro de que-es-bloop */
+        font-size: 1rem;
+    }
+    .contacto h1 {
+        font-size: 2.2rem;
+    }
+    body {
+        padding-top: 60px; /* Ajustar si la navbar cambia de altura */
+    }
+}
+
+@media (max-width: 576px) {
+    .home1 {
+        font-size: 2.2rem;
+    }
+    .gif-ibuprofeno {
+        width: 60px;
+    }
+    .home3 {
+        font-size: 0.9rem;
+    }
+    /* Si las burbujas son muy molestas en móvil, ya las hemos ocultado con d-none d-md-block */
 }
