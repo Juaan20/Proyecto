@@ -438,6 +438,13 @@ public class Conect_BD {
                 generatedKeys.close();
             }
 
+            PreparedStatement psUpdate = cn.prepareStatement(
+                    "UPDATE Evento SET Plazas_disponibles = Plazas_disponibles - ? WHERE Titulo = ?"
+            );
+            psUpdate.setInt(1, res.getNumero_Entradas());
+            psUpdate.setString(2, res.getEvento());
+            psUpdate.executeUpdate();
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conect_BD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

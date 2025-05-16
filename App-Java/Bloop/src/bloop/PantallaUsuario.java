@@ -23,9 +23,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
     Conect_BD objCon = new Conect_BD();
     int ID;
     String Nombre;
-
+    
     ArrayList<Evento> array_Evento = new ArrayList<>();
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +37,10 @@ public class PantallaUsuario extends javax.swing.JFrame {
         Ver_Reservas = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        Hilos_ = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -49,7 +52,6 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
 
-        Ver_Reservas.setMaximumSize(new java.awt.Dimension(574, 486));
         Ver_Reservas.setMinimumSize(new java.awt.Dimension(574, 486));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,6 +80,52 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(Ver_ReservasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+        );
+
+        Hilos_.setMaximumSize(new java.awt.Dimension(919, 197));
+        Hilos_.setMinimumSize(new java.awt.Dimension(919, 197));
+        Hilos_.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                Hilos_WindowOpened(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 48)); // NOI18N
+        jLabel5.setText("Procesando Pago");
+
+        jProgressBar1.setToolTipText("");
+
+        jLabel6.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jLabel6.setText("0%");
+
+        javax.swing.GroupLayout Hilos_Layout = new javax.swing.GroupLayout(Hilos_.getContentPane());
+        Hilos_.getContentPane().setLayout(Hilos_Layout);
+        Hilos_Layout.setHorizontalGroup(
+            Hilos_Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Hilos_Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(168, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Hilos_Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Hilos_Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Hilos_Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(268, 268, 268))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Hilos_Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(382, 382, 382))))
+        );
+        Hilos_Layout.setVerticalGroup(
+            Hilos_Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Hilos_Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -233,12 +281,24 @@ public class PantallaUsuario extends javax.swing.JFrame {
         objReserva.setTipo_Reserva(jComboBox1.getSelectedItem().toString());
         
         objCon.Hacer_Reserva(objReserva);
+        
+
+        Hilos_.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         jLabel2.setText("Reserva:");
         jLabel2.setText(jLabel2.getText()+" "+array_Evento.get(jTable1.getSelectedRow()).getTitulo());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void Hilos_WindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Hilos_WindowOpened
+        Hilos objHilos = new Hilos(jProgressBar1,jLabel6,Hilos_ );
+        objHilos.start();
+        
+
+    }//GEN-LAST:event_Hilos_WindowOpened
 
     public void ID(int id) {
         this.ID = id;
@@ -280,6 +340,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Hilos_;
     private javax.swing.JDialog Ver_Reservas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -288,6 +349,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
