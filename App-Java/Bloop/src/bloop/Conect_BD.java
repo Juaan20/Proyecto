@@ -27,7 +27,6 @@ import javax.swing.table.DefaultTableModel;
 public class Conect_BD {
 
     Connection cn;
-    Statement sql;
     ResultSet rs;
 
     String resultado = "";
@@ -88,7 +87,7 @@ public class Conect_BD {
             String SQL = "SELECT Categoria FROM categoria_evento";
             PreparedStatement ps = cn.prepareStatement(SQL);
             rs = ps.executeQuery();
-            jc.removeAllItems(); // Opcional: limpia el combo antes de agregar nuevos elementos
+            jc.removeAllItems(); // limpia el combo antes de agregar nuevos elementos
 
             while (rs.next()) {
                 String categoria = rs.getString("Categoria");
