@@ -305,6 +305,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel8.setText("Nombre de la categoria:");
 
+        jButton4.setBackground(new java.awt.Color(255, 165, 0));
         jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton4.setText("Añadir");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -344,6 +345,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel10.setText("Elige Categoria a Elminar:");
 
+        jButton11.setBackground(new java.awt.Color(255, 165, 0));
         jButton11.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton11.setText("Eliminar Categoria");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -386,7 +388,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 36)); // NOI18N
         jLabel1.setText("Panel de Adminsitrador Bloop");
 
-        jButton1.setBackground(new java.awt.Color(73, 94, 180));
+        jButton1.setBackground(new java.awt.Color(255, 165, 0));
         jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
         jButton1.setText("Panel Eventos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -395,7 +397,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(73, 94, 180));
+        jButton2.setBackground(new java.awt.Color(255, 165, 0));
         jButton2.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
         jButton2.setText("Panel Reservas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -404,7 +406,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(73, 94, 180));
+        jButton7.setBackground(new java.awt.Color(255, 165, 0));
         jButton7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton7.setText("Volver");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -437,7 +439,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 26, Short.MAX_VALUE)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
