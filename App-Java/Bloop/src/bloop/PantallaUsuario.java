@@ -84,10 +84,12 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
         );
 
+        Hilos_.setLocation(new java.awt.Point(200, 300));
         Hilos_.setMinimumSize(new java.awt.Dimension(919, 197));
+        Hilos_.setUndecorated(true);
         Hilos_.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                Hilos_WindowOpened(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                WindowClosed(evt);
             }
         });
 
@@ -297,13 +299,17 @@ public class PantallaUsuario extends javax.swing.JFrame {
         objReserva.setTipo_Reserva(jComboBox1.getSelectedItem().toString());
         
         
-        objCon.Hacer_Reserva(objReserva);
+        objCon.Hacer_Reserva(objReserva, array_Evento.get(jTable1.getSelectedRow()).getID());
         
 
         Hilos_.setVisible(true);
         
         array_Evento.clear();
         array_Evento = objCon.Ver_Eventos_User(jTable1);
+        jLabel2.setText("Reserva:");
+        
+        Hilos objHilos = new Hilos(jProgressBar1,jLabel6,Hilos_ );
+        objHilos.start();
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -312,19 +318,16 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jLabel2.setText(jLabel2.getText()+" "+array_Evento.get(jTable1.getSelectedRow()).getTitulo());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void Hilos_WindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Hilos_WindowOpened
-        setVisible(false);
-        Hilos objHilos = new Hilos(jProgressBar1,jLabel6,Hilos_ );
-        objHilos.start();
-        setVisible(true);
-
-    }//GEN-LAST:event_Hilos_WindowOpened
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         setVisible(false);
         PantallPrincipal objPantallaAdmin = new PantallPrincipal();
         objPantallaAdmin.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void WindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_WindowClosed
+        jProgressBar1.setValue(0);
+        jLabel6.setText("0%");
+    }//GEN-LAST:event_WindowClosed
 
     public void ID(int id) {
         this.ID = id;

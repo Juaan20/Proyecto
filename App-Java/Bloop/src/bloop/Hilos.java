@@ -34,7 +34,7 @@ public class Hilos extends Thread {
     @Override
     public void run() {
         int valor = L.getValue();
-
+        
         while (valor < 100) {
             try {
                 int tiempoEspera = 100 + aleatorio.nextInt(900);

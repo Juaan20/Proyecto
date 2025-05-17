@@ -399,7 +399,7 @@ public class Conect_BD {
 
     }
 
-    public void Hacer_Reserva(Reserva res) {
+    public void Hacer_Reserva(Reserva res, int _ID) {
 
         String SQL = "";
         try {
@@ -439,10 +439,10 @@ public class Conect_BD {
             }
 
             PreparedStatement psUpdate = cn.prepareStatement(
-                    "UPDATE Evento SET Plazas_disponibles = Plazas_disponibles - ? WHERE Titulo = ?"
+                    "UPDATE Evento SET Plazas_disponibles = Plazas_disponibles - ? WHERE Id_evento = ?"
             );
             psUpdate.setInt(1, res.getNumero_Entradas());
-            psUpdate.setString(2, res.getEvento());
+            psUpdate.setInt(2, _ID);
             psUpdate.executeUpdate();
 
         } catch (ClassNotFoundException ex) {
