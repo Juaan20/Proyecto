@@ -1,4 +1,8 @@
 # 🚀 ¡Bienvenidos a Bloop!  
+
+![Logo de Bloop](./Pagina-Web/Logo-bloop.png)
+
+
 ## Tu Próximo Sistema de Reserva de Eventos 🌐
 
 ¡Hola a todos! Somos el equipo detrás de **Bloop**, la plataforma innovadora que transformará la forma en la que reservas y gestionas tus eventos.  
@@ -98,7 +102,7 @@ Estamos emocionados de transformar ideas en realidad y construir un sistema de r
 ¿Listo para reservar tu próximo evento?  
 **¡Bloop está en camino!** 🚀
 
-![Logo de Bloop](./Pagina-Web/Logo-bloop.png)
+
 
 ---
 
