@@ -97,7 +97,9 @@ Estamos emocionados de transformar ideas en realidad y construir un sistema de r
 
 ¿Listo para reservar tu próximo evento?  
 **¡Bloop está en camino!** 🚀
-
+![Logo de Bloop](../Proyecto/Pagina-Web/Logo-bloop.png)
 ---
 
 > _Desarrollado con pasión por Rafael Navarro, Juan Antonio Alfaro, Izan Ruiz y Ángel Liria._
+
+
