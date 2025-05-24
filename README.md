@@ -1,7 +1,8 @@
 # 🚀 ¡Bienvenidos a Bloop!  
 
-![Logo de Bloop](./Pagina-Web/Logo-bloop.png)
-
+<p align="center">
+  <img src="./Pagina-Web/Logo-bloop.png" width="150" alt="Logo de Bloop">
+</p>
 
 ## Tu Próximo Sistema de Reserva de Eventos 🌐
 
