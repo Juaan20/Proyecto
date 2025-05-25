@@ -73,7 +73,8 @@ public class PantallaAdmin extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         PanelEventos.setBackground(new java.awt.Color(217, 217, 217));
-        PanelEventos.setMinimumSize(new java.awt.Dimension(1490, 650));
+        PanelEventos.setMaximumSize(new java.awt.Dimension(1490, 559));
+        PanelEventos.setMinimumSize(new java.awt.Dimension(1490, 559));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 50)); // NOI18N
         jLabel2.setText("Panel eventos");
@@ -101,23 +102,25 @@ public class PantallaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel3.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel3.setText("Categoria:");
 
         jTextField2.setToolTipText("");
 
-        jLabel4.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel4.setText("Nombre:");
 
-        jLabel5.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel5.setText("Fecha:");
 
-        jLabel6.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel6.setText("Ubicacion:");
 
-        jLabel7.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel7.setText("Plazas:");
 
+        jButton3.setBackground(new java.awt.Color(255, 165, 0));
+        jButton3.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton3.setText("Mostrar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +130,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
 
         jTextField3.setText("2025-05-09");
 
+        jToggleButton1.setBackground(new java.awt.Color(255, 165, 0));
         jToggleButton1.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jToggleButton1.setText("+");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +139,8 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setBackground(new java.awt.Color(255, 165, 0));
+        jButton8.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton8.setText("Editar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +148,8 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setBackground(new java.awt.Color(255, 165, 0));
+        jButton9.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton9.setText("Crear");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +157,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setBackground(new java.awt.Color(255, 165, 0));
         jButton10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton10.setText("-");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +166,8 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setBackground(new java.awt.Color(255, 165, 0));
+        jButton12.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton12.setText("Eliminar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,18 +254,18 @@ public class PantallaAdmin extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)))
                         .addGap(27, 27, 27)
                         .addGroup(PanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(PanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                             .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(127, 127, 127))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         PanelReservas.setMinimumSize(new java.awt.Dimension(872, 574));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Palatino Linotype", 1, 50)); // NOI18N
         jLabel9.setText("Panel de Reservas");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -302,11 +313,11 @@ public class PantallaAdmin extends javax.swing.JFrame {
         AñadirCategoria.setMinimumSize(new java.awt.Dimension(477, 152));
         AñadirCategoria.setName("AñadirCategoria"); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel8.setText("Nombre de la categoria:");
 
         jButton4.setBackground(new java.awt.Color(255, 165, 0));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButton4.setText("Añadir");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +336,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                     .addGroup(AñadirCategoriaLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         AñadirCategoriaLayout.setVerticalGroup(
@@ -337,7 +348,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         Eliminar_Categoria.setMinimumSize(new java.awt.Dimension(469, 144));
