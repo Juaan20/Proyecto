@@ -534,11 +534,11 @@ public class PantallaAdmin extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         Eliminar_Categoria.setVisible(true);
+        objCont.Ver_Categoria(jComboBox2);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         objCont.Eliminar_Categoria(jComboBox2.getSelectedItem().toString());
-        objCont.Ver_Categoria(jComboBox2);
         objCont.Ver_Categoria(jComboBox1);
     }//GEN-LAST:event_jButton11ActionPerformed
 
