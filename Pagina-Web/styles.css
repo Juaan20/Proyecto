@@ -4,25 +4,22 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    /* Para evitar que el contenido quede debajo del navbar fijo */
     padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
 }
 
 nav {
-    /* margin-top: -10px; Ya no es necesario con fixed-top y padding-top en body */
-    background-color: rgba(255, 255, 255, 0.8); /* Ligeramente opaco para legibilidad */
-    backdrop-filter: blur(5px); /* Reducido un poco el blur para rendimiento si es necesario */
+    background-color: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(5px); 
 }
 
-.logo-bloop { /* Clase específica para el logo en la navbar */
+.logo-bloop { 
     max-width: 80px; /* Ajusta según necesites */
     margin: 0;
     padding: 0;
-    /* backdrop-filter ya no es necesario aquí si está en nav */
     border-radius: 25%;
 }
 
-.texto-header { /* Esta clase no estaba siendo usada en el HTML proporcionado */
+.texto-header { 
     font-size: 2em;
     font-weight: 700;
 }
@@ -37,7 +34,7 @@ nav {
     position: absolute;
     bottom: 0;
     animation: animarburbujas 4s linear infinite;
-    z-index: -1; /* Para que estén detrás del contenido */
+    z-index: -1;
 }
 
 .burbujas div:nth-child(1) {
@@ -114,61 +111,53 @@ nav {
 
 /* home */
 .home {
-    /* height: 100vh; Reemplazado por min-vh-100 de Bootstrap y flex para centrar */
-    /* Las clases de Bootstrap d-flex flex-column justify-content-center align-items-center text-center min-vh-100 manejan esto */
+  
 }
 
 .home1 {
-    font-size: 7rem; /* Reducido para mejor adaptabilidad, usa clases de display de BS o media queries si necesitas más control */
+    font-size: 7rem; 
     font-style: normal;
-    font-weight: 400; /* Bootstrap tiene fw-bold, fw-normal etc. */
-    line-height: 1.2; /* Ajustado */
+    font-weight: 400; 
+    line-height: 1.2; 
     text-transform: uppercase;
-    margin-bottom: 2rem; /* Ajustado */
+    margin-bottom: 2rem; 
     color: orangered;
 }
 
 .gif-ibuprofeno {
-    width: 100px; /* Ajusta el tamaño del GIF */
+    width: 100px; 
     vertical-align: middle; /* Mejor alineación con el texto */
 }
 
 .home3 {
-    font-size: 1.25rem; /* class="lead" de Bootstrap ya hace esto */
-    /* font-weight: 400; */
+    font-size: 1.25rem;
     line-height: 1.5;
     text-transform: uppercase;
-    /* padding: 0px 400px 0px 400px; Eliminado, el container se encarga del padding lateral */
-    text-align: center;
+   
 }
 
 /* que es bloop */
 .que-es-bloop {
-    /* height: 100vh; py-5 y el contenido definirán la altura */
-    /* display: flex; align-items: center; flex-direction: column; Se maneja con Bootstrap y text-center */
     color: orangered;
-    /* padding: 45px 0px 0px 0px ; Reemplazado por py-5 en el HTML */
 }
 
 .que-es-bloop h1 {
-    font-size: 2.5rem; /* Ajustado */
-    margin-bottom: 1.5rem; /* Ajustado */
+    font-size: 2.5rem; 
+    margin-bottom: 1.5rem;
 }
 
 .que-es-bloop h2 {
-    font-size: 2rem; /* Ajustado */
+    font-size: 2rem; 
     margin-top: 2rem;
-    margin-bottom: 1rem; /* Ajustado */
+    margin-bottom: 1rem;
 }
 
-.que-es-bloop .h3 { /* Usando la clase .h3 de Bootstrap o ajustando p */
-    font-size: 1.25rem; /* Ajustado */
-    /* padding: 0px 45px 0px 45px; El container se encarga del padding lateral */
-    margin-bottom: 1.5rem; /* Ajustado */
+.que-es-bloop .h3 { 
+    font-size: 1.25rem; 
+    margin-bottom: 1.5rem; 
 }
 
 .entradas {
-    /* display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; Manejado por row y col de Bootstrap */
 }
 
 .logo-entrada {
@@ -177,88 +166,54 @@ nav {
 }
 
 .entradas img {
-    /* width: 200px; Manejado por col y img-fluid */
+    
     border-radius: 15px;
 }
 
 /* eventos */
 .eventos {
-    /* height: 100vh; min-vh-100 y py-5 en HTML */
-    /* display: flex; justify-content: center; align-items: center; Manejado por d-flex en HTML */
+    
 }
-
-/* Las siguientes clases y media queries para img-evento-1 y img-evento-2
-   se reemplazan con las clases de display de Bootstrap (d-none, d-lg-block, etc.) en el HTML */
-/*
-.img-evento-1{
-  width: 1450px;display: block;
-}
-
-.img-evento-2{
-  width: 350px;display: none;
-}
-
-@media screen and (max-width: 1455px) {
-    .img-evento-1{
-        width: 1000px;
-    }
-}
-
-@media screen and (max-width: 1072px) {
-    .img-evento-1{
-        display: none;
-    }
-    .img-evento-2{
-        display: block;
-    }
-}
-*/
 
 /* contacto */
 .contacto {
-    /* display: flex; justify-content: center; align-items: center; flex-direction: column; min-vh-100 y d-flex en HTML */
-    /* height: 100vh; min-vh-100 y py-5 en HTML */
+    
 }
 
 .contacto h1 {
-    font-size: 2.8rem; /* Ajustado */
-    /* margin-bottom: 100px; Controlado por mb-4 en HTML */
+    font-size: 2.8rem; 
 }
 
 .contacto .boton {
-    /* padding: 5px 240px 5px 240px; Eliminado, d-grid hace que ocupe el ancho */
     background-color: orangered;
-    border: 1px solid rgb(255, 171, 87); /* Considera usar las clases de outline de Bootstrap si quieres un borde diferente al default */
-    padding-top: 0.75rem; /* Ajuste de padding vertical si es necesario */
+    border: 1px solid rgb(255, 171, 87); 
+    padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
 
 .contacto .boton:hover {
-    background-color: #e06200; /* Un color un poco más oscuro para el hover */
+    background-color: #e06200; 
     border-color: #d35400;
 }
 
 
 /* footer */
 .footer {
-    /* display: flex; justify-content: center; align-items: center; flex-direction: column; py-4 y text-center en HTML */
-    /* height: 14vh; py-4 define la altura */
     background-color: rgb(220, 220, 220);
 }
 
 .footer p {
-    margin-bottom: 0.25rem; /* Ajustado con clases de Bootstrap en HTML */
-    /* padding: 0; */
+    margin-bottom: 0.25rem; 
 }
 
-/* Ajustes de fuente para pantallas más pequeñas usando Media Queries si es necesario */
+
 @media (max-width: 768px) {
   .entradas{
-    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-    align-items: center; /* Centra los elementos */
+    flex-direction: column; 
+    align-items: center; 
   }
     .home1 {
-        font-size: 2.8rem; /* Más pequeño en tablets y móviles */
+        font-size: 2.8rem; 
     }
     .gif-ibuprofeno {
         width: 80px;
@@ -272,14 +227,14 @@ nav {
     .que-es-bloop h2 {
         font-size: 1.75rem;
     }
-    .que-es-bloop .h3, .que-es-bloop p { /* p tags dentro de que-es-bloop */
+    .que-es-bloop .h3, .que-es-bloop p { 
         font-size: 1rem;
     }
     .contacto h1 {
         font-size: 2.2rem;
     }
     body {
-        padding-top: 60px; /* Ajustar si la navbar cambia de altura */
+        padding-top: 60px; 
     }
 }
 
@@ -293,5 +248,4 @@ nav {
     .home3 {
         font-size: 0.9rem;
     }
-    /* Si las burbujas son muy molestas en móvil, ya las hemos ocultado con d-none d-md-block */
 }
