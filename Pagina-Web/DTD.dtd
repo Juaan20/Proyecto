@@ -1,0 +1,16 @@
+<!ELEMENT eventos (evento+)>
+
+<!ELEMENT evento (nombre, fecha, hora, lugar, aforo, precio, edad_minima?, musica?)>
+<!ATTLIST evento 
+    id ID #REQUIRED
+    tipo (fiesta) #REQUIRED
+>
+
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT lugar (#PCDATA)>
+<!ELEMENT aforo (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT edad_minima (#PCDATA)>
+<!ELEMENT musica (#PCDATA)>

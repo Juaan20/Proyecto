@@ -1,0 +1,65 @@
+<evento id="F001" tipo="fiesta">
+    <nombre>Fiesta de Fin de Año</nombre>
+    <fecha>2025-12-31</fecha>
+    <hora>23:00</hora>
+    <lugar>Club Nocturno Eclipse</lugar>
+    <aforo>300</aforo>
+    <precio>50.00</precio>
+    <edad_minima>18</edad_minima>
+    <musica>Electrónica</musica>
+</evento>
+
+<evento id="F002" tipo="fiesta">
+    <nombre>Tardeo Latino</nombre>
+    <fecha>2025-06-15</fecha>
+    <hora>17:00</hora>
+    <lugar>Terraza Sunset</lugar>
+    <aforo>150</aforo>
+    <precio>25.00</precio>
+    <edad_minima>16</edad_minima>
+    <musica>Reguetón y Salsa</musica>
+</evento>
+
+<evento id="F003" tipo="fiesta">
+    <nombre>Fiesta Neón</nombre>
+    <fecha>2025-07-20</fecha>
+    <hora>22:30</hora>
+    <lugar>Club Prisma</lugar>
+    <aforo>400</aforo>
+    <precio>40.00</precio>
+    <edad_minima>18</edad_minima>
+    <musica>Techno</musica>
+</evento>
+
+<evento id="F004" tipo="fiesta">
+    <nombre>Tardeo Electrónico</nombre>
+    <fecha>2025-08-03</fecha>
+    <hora>16:00</hora>
+    <lugar>Rooftop SkyBar</lugar>
+    <aforo>200</aforo>
+    <precio>30.00</precio>
+    <edad_minima>18</edad_minima>
+    <musica>Deep House</musica>
+</evento>
+
+<evento id="F005" tipo="fiesta">
+    <nombre>Fiesta Blanca en la Playa</nombre>
+    <fecha>2025-09-01</fecha>
+    <hora>20:00</hora>
+    <lugar>Playa Coral</lugar>
+    <aforo>500</aforo>
+    <precio>45.00</precio>
+    <edad_minima>18</edad_minima>
+    <musica>House & Chill</musica>
+</evento>
+
+<evento id="F006" tipo="fiesta">
+    <nombre>Sunset Party</nombre>
+    <fecha>2025-06-22</fecha>
+    <hora>19:00</hora>
+    <lugar>Mirador del Sol</lugar>
+    <aforo>250</aforo>
+    <precio>35.00</precio>
+    <edad_minima>16</edad_minima>
+    <musica>Pop y Electrónica</musica>
+</evento>
