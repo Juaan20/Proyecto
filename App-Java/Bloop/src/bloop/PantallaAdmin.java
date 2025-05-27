@@ -73,7 +73,6 @@ public class PantallaAdmin extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         PanelEventos.setBackground(new java.awt.Color(217, 217, 217));
-        PanelEventos.setMaximumSize(new java.awt.Dimension(1490, 559));
         PanelEventos.setMinimumSize(new java.awt.Dimension(1490, 559));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 50)); // NOI18N
