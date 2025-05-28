@@ -51,7 +51,7 @@
     <aforo>500</aforo>
     <precio>45.00</precio>
     <edad_minima>18</edad_minima>
-    <musica>House & Chill</musica>
+    <musica>House Chill</musica>
 </evento>
 
 <evento id="F006" tipo="fiesta">
@@ -64,4 +64,4 @@
     <edad_minima>16</edad_minima>
     <musica>Pop y Electrónica</musica>
 </evento>
-<eventos/>
+</eventos>
